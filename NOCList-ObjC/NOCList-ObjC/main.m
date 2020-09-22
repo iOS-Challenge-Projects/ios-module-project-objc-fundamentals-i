@@ -79,6 +79,28 @@ int main(int argc, const char * argv[]) {
             }
         }
         
+        //Step 6
+        int low = 0;
+        int mid = 0;
+        int high = 0;
+        
+        for(FGTAgent *agent in agents){
+            switch (agent.accessLevel.intValue) {
+                case 0 ... 4:
+                    low++;
+                    break;
+                case 5 ... 7:
+                    mid++;
+                    break;
+                case 8 ... 10 :
+                    high++;
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        NSLog(@"%i low level agents, %i mid level agents, and %i high level agents",low,mid,high);
         
     }
     return 0;
