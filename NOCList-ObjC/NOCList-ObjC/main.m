@@ -33,9 +33,34 @@ int main(int argc, const char * argv[]) {
         
         FGTAgent *frank = [[FGTAgent alloc] initWithCoverName:@"Frank Barnes" realName:@"Dale Dye" accessLevel:9 compromised:0];
         
-        NSArray *agents = [[NSArray alloc] initWithObjects: ethan, jim ,claire, eugene,franz,luther,sarah,max,hannah,jack,frank, nil];
+        NSArray *agents = [[NSArray alloc] initWithObjects:
+                           ethan,
+                           jim ,
+                           claire,
+                           eugene,
+                           franz,
+                           luther,
+                           sarah,
+                           max,
+                           hannah,
+                           jack,
+                           frank,
+                           nil];
         
-      
+       
+        
+        int compromised = 0;
+        for (FGTAgent *agent in agents){
+            if (agent.compromised.boolValue) {
+                compromised++;
+            }else{
+                NSLog(@"Agent is clean: %@", agent.coverName);
+            
+            }
+        }
+        NSLog(@"Compromised agents: %i", compromised);
+        
+        
         
         
     }
