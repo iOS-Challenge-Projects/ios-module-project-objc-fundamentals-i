@@ -48,19 +48,36 @@ int main(int argc, const char * argv[]) {
                            nil];
         
        
-        
+        //Step 3
         int compromised = 0;
         for (FGTAgent *agent in agents){
             if (agent.compromised.boolValue) {
                 compromised++;
-            }else{
-                NSLog(@"Agent is clean: %@", agent.coverName);
-            
             }
         }
         NSLog(@"Compromised agents: %i", compromised);
         
+        //Step 4
+        int cleanAngents = 0;
+        for(FGTAgent *agent in agents){
+            if(agent.compromised.boolValue == FALSE){
+                cleanAngents++;
+                NSLog(@"Agent is clean: %@", agent.coverName);
+            }
+        }
+        NSLog(@"Total clean agents: %i", cleanAngents);
         
+        
+        //Step 5
+        for(FGTAgent * agent in agents){
+            if(agent.accessLevel.intValue >= 8){
+                if(agent.compromised.boolValue){
+                    NSLog(@"%@, level: %@ **WARNING** **COMPROMISED**",agent.realName, agent.accessLevel);
+                }else{
+                    NSLog(@"%@: %@", agent.realName, agent.accessLevel);
+                }
+            }
+        }
         
         
     }
